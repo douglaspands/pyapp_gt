@@ -7,6 +7,12 @@ def run_shell(cmd: str) -> int:
     return os.system(cmd)
 
 
-def run_makerequirements():
+def make_requirements():
     cmd = "poetry export -f requirements.txt --without-hashes --output requirements.txt"
     sys.exit(run_shell(cmd))
+
+
+def make_secretkey():
+    import secrets
+
+    print(secrets.token_hex())
