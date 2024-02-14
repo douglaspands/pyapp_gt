@@ -31,3 +31,4 @@ profile = "black"
 [tool.poetry.scripts]
 make_requirements = "scripts.poetry:make_requirements"
 make_secretkey = "scripts.poetry:make_secretkey"
+www_watch = "scripts.poetry:run_www_watch"

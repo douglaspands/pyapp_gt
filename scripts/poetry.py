@@ -16,3 +16,8 @@ def make_secretkey():
     import secrets
 
     print(secrets.token_hex())
+
+
+def run_www_watch():
+    cmd = "cd www && npm run watch"
+    sys.exit(run_shell(cmd))
