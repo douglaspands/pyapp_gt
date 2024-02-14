@@ -1,3 +1,4 @@
 (async () => {
-    console.log("primeiro script");
+    let msg = "terceiro script";
+    console.log(msg);
 })();
