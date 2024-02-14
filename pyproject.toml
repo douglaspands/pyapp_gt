@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pyapp-gt"
+version = "0.1.0"
+description = "Aplicação para uso em multiplos negocios."
+authors = ["Douglas Panhota <douglaspands@gmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "django_core"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+django-debug-toolbar = "^4.3.0"
+black = "^24.2.0"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry.scripts]
+makerequirements = "scripts.poetry:run_makerequirements"
