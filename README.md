@@ -2,7 +2,7 @@
 Aplicação Django para multi-projetos.
 
 ## Dependencias
-- Python ^3.12;
+- Python ^3.12.2;
 - Poetry ^1.7.1;
 - Node.js ^20.11.0 (LTS/Iron);
 
