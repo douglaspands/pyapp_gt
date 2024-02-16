@@ -10,31 +10,33 @@ Aplicação Django para multi-projetos.
 Feito todos os passos abaixo, o site vai estar disponivel na url [http://localhost:3000](http://localhost:3000).
 > Os itens de 1 a 3 só precisam ser executado na primeira vez. 
 
-### 1. Instalando a aplicação
-1.1. É necessario fazer a instalação das dependencias do Python:
+### 1. Instalando dependencias do Python
+1.1. Na pasta raiz do projeto, executar o comando:
 ```sh
 python -m venv .venv && poetry env use .venv/bin/python && poetry install
 ```
-1.2. É necessario instalar as dependencias do Node.js (na pasta `www`):
+
+### 2. Instalando dependencias do Node.js
+2.1. Na pasta `www`, executar o comando:
 ```sh
 npm install
 ``` 
 
-### 2. Instalar migrations
-2.1. Na pasta raiz do projeto, executar o comando:
+### 3. Instalar migrations
+3.1. Na pasta raiz do projeto, executar o comando:
 ```sh
 python manage.py migrations
 ```
 
-### 3. Iniciar servidor
-3.1. Na pasta raiz do projeto, executar o comando:
+### 4. Iniciar servidor
+4.1. Na pasta raiz do projeto, executar o comando:
 ```sh
 python manage.py runserver
 ```
 > O site vai estar disponivel na url: [http://localhost:8000](http://localhost:8000). Porem, recomendo seguir para o proximo passo.
 
-### 4. Iniciar o build watch dos assets
-4.1. Na pasta `www`, executar o comando:
+### 5. Iniciar o build watch dos assets
+5.1. Na pasta `www`, executar o comando:
 ```sh
 npm run watch
 ```
