@@ -4,14 +4,53 @@
 {% block title %}Home{% endblock title %}
 
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home/style.css' %}">
 {% endblock style %}
 
 {% block content %}
-    <h2>Titulo da Pagina</h2>
-    <p>Conteudo da pagina.</p>
+    <div class="container">
+        <h2>h2. Bootstrap heading</h2>
+        <br>
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+        <p><del>This line of text is meant to be treated as deleted text.</del></p>
+        <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+        <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+        <p><u>This line of text will render as underlined.</u></p>
+        <p><small>This line of text is meant to be treated as fine print.</small></p>
+        <p><strong>This line rendered as bold text.</strong></p>
+        <p><em>This line rendered as italicized text.</em></p>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
 {% endblock content %}
 
 {% block script %}
-    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/home/script.js' %}"></script>
 {% endblock script %}

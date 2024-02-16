@@ -1,14 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-        <title>{% block title %}{% endblock title %}</title>
-        {% block style %}{% endblock style %}
-    </head>
-    <body>
-    {% include "includes/navbar.html" %}
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block style %}{% endblock style %}
+</head>
+
+<body>
+    {% include "includes/header.html" %}
+    <br>
     {% block content %}{% endblock content %}
+    <br>
+    {% include "includes/footer.html" %}
+    <script src="{% static 'js/base.js' %}"></script>
     {% block script %}{% endblock script %}
-    </body>
+</body>
+
 </html>

@@ -2,9 +2,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob');
 
-const FOLDER_JS = "src/js";
-const FOLDER_SCSS = "src/scss";
-const FOLDER_DIST = "static";
+const FOLDER_JS = 'src/js';
+const FOLDER_SCSS = 'src/scss';
+const FOLDER_DIST = 'static';
 
 module.exports = {
   entry: (() => {
