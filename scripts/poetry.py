@@ -20,3 +20,13 @@ def make_secretkey():
 def run_www_watch():
     cmd = "cd www && npm run watch"
     run_shell(cmd)
+
+
+def rum_emailserver_start():
+    cmd = "cd .docker && docker compose -f emailserver.docker-compose.yml up -d && docker compose -f emailserver.docker-compose.yml logs -f"
+    run_shell(cmd)
+
+
+def rum_emailserver_stop():
+    cmd = "cd .docker && docker compose -f emailserver.docker-compose.yml down -v"
+    run_shell(cmd)

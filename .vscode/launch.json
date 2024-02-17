@@ -13,6 +13,20 @@
                 "runserver"
             ],
             "django": true
+        },
+        {
+            "name": "Python Debugger: Test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "test",
+                "${relativeFileDirname}"
+            ],
+            "django": true,
+            "env": {
+                "DJANGO_SETTINGS_MODULE": "django_core.settings.test"
+            }
         }
     ]
 }

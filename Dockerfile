@@ -1,15 +1,6 @@
 ARG USER=app
 
 
-# Node Builder
-FROM node:iron-bookworm as node_builder
-
-COPY ./www /var/build/www
-
-RUN cd /var/build/www && npm install
-RUN cd /var/build/www && npm run build
-
-
 # Python Base
 FROM python:3.12.2-bookworm as python_base
 ARG USER
@@ -35,6 +26,15 @@ RUN apt update -qq && \
     useradd --home /home/${USER} ${USER}
 
 
+# Node Builder
+FROM node:iron-bookworm as node_builder
+
+COPY ./www /var/build/www
+
+RUN cd /var/build/www && npm install
+RUN cd /var/build/www && npm run build
+
+
 # App Release
 FROM python_base as app_release
 ARG USER
@@ -53,6 +53,7 @@ RUN pip install --user -r ./requirements.txt && \
 
 COPY --chown=${USER}:${USER} ./manage.py ./manage.py
 COPY --chown=${USER}:${USER} ./django_core ./django_core
+COPY --chown=${USER}:${USER} ./communication ./communication
 
 COPY --chown=${USER}:${USER} ./www/views ./www/views
 COPY --chown=${USER}:${USER} ./www/templates ./www/templates
@@ -60,4 +61,5 @@ COPY --chown=${USER}:${USER} ./www/forms ./www/forms
 COPY --chown=${USER}:${USER} ./www/urls ./www/urls
 COPY --chown=${USER}:${USER} ./www/__init__.py ./www/apps.py ./www/
 COPY --from=node_builder --chown=${USER}:${USER} /var/build/www/static ./www/static
-RUN ln -sf ./www/static ./static
+
+RUN python manage.py collectstatic

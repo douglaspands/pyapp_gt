@@ -1,20 +1,6 @@
-import socket
-
 from django_core.settings.base import *
 
-DEBUG = True
-
-INSTALLED_APPS += [
-    "debug_toolbar",
-]
-
-MIDDLEWARE += [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-]
-
-hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
-
+DEBUG = False
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -22,7 +8,7 @@ INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ROOT_DIR / "db.sqlite3",
+        "NAME": ROOT_DIR / "dbtest.sqlite3",
     }
 }
 

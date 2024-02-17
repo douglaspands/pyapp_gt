@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+
+  email-server:
+    image: mailhog/mailhog:latest
+    restart: on-failure
+    ports:
+      - 1025:1025
+      - 8025:8025
+
+  # email-server:
+  #   restart: on-failure
+  #   image: dockage/mailcatcher:0.9.0
+  #   ports:
+  #     - "1080:1080"
+  #     - "1025:1025"
