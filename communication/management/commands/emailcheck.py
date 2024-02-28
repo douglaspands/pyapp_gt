@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from communication.services import email
+from communication.resources.email import Email
+from communication.services import email as email_service
 
 
 class Command(BaseCommand):
@@ -10,10 +11,11 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-        sender: str = "Sender Check <sender@check.com>"
-        to: list[str] = ["Receive Check <receive@check.com>"]
-        subject: str = "Subtitle Check"
-        message: str = "# Title Check\n\nMessage content check."
-
-        email.send_email(sender=sender, to=to, subject=subject, message=message)
+        e = Email(
+            sender="Sender Check <sender@check.com>",
+            to=["Receive Check <receive@check.com>"],
+            subject="Subtitle Check",
+            message="# Title Check\n\nMessage content check.",
+        )
+        email_service.send_email(e)
         self.stdout.write(self.style.SUCCESS("Send Email Checked"))
